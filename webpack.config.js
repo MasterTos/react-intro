@@ -3,7 +3,7 @@ var path = require('path');
 
 var config = {
     entry: {
-        hello: path.join(__dirname, 'src', 'app.js'),
+        hello: path.join(__dirname, 'src', 'app.js')
     },
     module: {
         loaders: [{
