@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {SearchForm} from './searchForm'
 
 const Header = (props) => (
     <header>
@@ -8,20 +9,6 @@ const Header = (props) => (
     </header>
 )
 
-class SearchForm extends React.Component {
-    onSearchClick(event) {
-        event.preventDefault()
-        console.log('this.onSearchClick naja', event)
-    }
-    render() {
-        return (
-            <form>
-                <input type="text"/>
-                <button onClick={this.onSearchClick}>Search</button>
-            </form>
-        )
-    }
-}
 
 const MovieList = (props) => (
     <ul>
