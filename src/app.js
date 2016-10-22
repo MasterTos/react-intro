@@ -8,36 +8,31 @@ const Header = (props) => (
     </header>
 )
 
+function onSearchClick(event) {
+    event.preventDefault()
+    console.log('onSearchClick', event)
+}
+
 const SearchForm = () => {
     return (
         <form>
             <input type="text"/>
-            <button type="submit">Search</button>
+            <button onClick={onSearchClick}>Search</button>
         </form>
     )
 }
 
 const MovieList = (props) => (
-    <ul>{props
+    <ul>
+        {props
             .movies
-            .map(movie => (
-                <li key={movie.id}>{movie.title}</li>
-            ))}
+            .map((movie, i) => {
+                return (
+                    <li key={i}>{movie.title}</li>
+                )
+            })}
     </ul>
 )
-
-const Items = (props) => {
-    console.log(props.items)
-    return (
-        <ul>
-            {props
-                .items
-                .map(item => (
-                    <li>{item}</li>
-                ))}
-        </ul>
-    )
-}
 
 const Content = (props) => (
     <section>
@@ -49,24 +44,20 @@ const Content = (props) => (
 )
 
 const App = () => {
-    const title = 'Front techs react'
-    const description = 'This is a simple react application'
     const movies = [
         {
-            id: 1,
-            title: "FFFFFF"
+            title: 'Rogue One: A Star Wars Story'
         }, {
-            id: 2,
-            title: "aaaaaa"
+            title: 'Guardians of the Galaxy Vol. 2'
         }, {
-            id: 3,
-            title: "AAAAAAAAA"
+            title: 'Doctor Strange'
         }
     ]
     return (
         <section>
-            <Header title={title}/>
-            <Content description={description} items={items}/>
+            <h1>Movie Collection</h1>
+            <SearchForm/>
+            <MovieList movies={movies}/>
         </section>
     )
 }
