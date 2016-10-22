@@ -8,18 +8,19 @@ const Header = (props) => (
     </header>
 )
 
-function onSearchClick(event) {
-    event.preventDefault()
-    console.log('onSearchClick', event)
-}
-
-const SearchForm = () => {
-    return (
-        <form>
-            <input type="text"/>
-            <button onClick={onSearchClick}>Search</button>
-        </form>
-    )
+class SearchForm extends React.Component {
+    onSearchClick(event) {
+        event.preventDefault()
+        console.log('this.onSearchClick', event)
+    }
+    render() {
+        return (
+            <form>
+                <input type="text"/>
+                <button onClick={this.onSearchClick}>Search</button>
+            </form>
+        )
+    }
 }
 
 const MovieList = (props) => (
