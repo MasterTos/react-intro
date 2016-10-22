@@ -11,11 +11,20 @@ const Header = (props) => (
 const SearchForm = () => {
     return (
         <form>
-        <input type="text"/>
-        <button type="submit">Search</button>
+            <input type="text"/>
+            <button type="submit">Search</button>
         </form>
     )
 }
+
+const MovieList = (props) => (
+    <ul>{props
+            .movies
+            .map(movie => (
+                <li key={movie.id}>{movie.title}</li>
+            ))}
+    </ul>
+)
 
 const Items = (props) => {
     console.log(props.items)
@@ -42,7 +51,18 @@ const Content = (props) => (
 const App = () => {
     const title = 'Front techs react'
     const description = 'This is a simple react application'
-    const items = ["Oliver", "John", "Tobey"]
+    const movies = [
+        {
+            id: 1,
+            title: "FFFFFF"
+        }, {
+            id: 2,
+            title: "aaaaaa"
+        }, {
+            id: 3,
+            title: "AAAAAAAAA"
+        }
+    ]
     return (
         <section>
             <Header title={title}/>
