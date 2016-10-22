@@ -11,7 +11,7 @@ const Header = (props) => (
 class SearchForm extends React.Component {
     onSearchClick(event) {
         event.preventDefault()
-        console.log('this.onSearchClick', event)
+        console.log('this.onSearchClick naja', event)
     }
     render() {
         return (
