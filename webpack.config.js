@@ -3,7 +3,7 @@ var path = require('path');
 
 var config = {
     entry: {
-        hello: path.join(__dirname, 'src', 'app.js')
+        hello: path.join(__dirname, 'src', 'app.js'),
     },
     module: {
         loaders: [{
@@ -17,11 +17,11 @@ var config = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: "app.js"
+        filename: 'app.js'
     },
     devServer: {
         historyApiFallback: true,
-        inline: true
+        inline: true,
     }
 };
 
