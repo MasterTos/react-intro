@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import {SearchForm} from './searchForm'
-import {Router, Route, hashHistory, Link} from 'react-router'
+import {Router, Route, hashHistory, Link, IndexRoute} from 'react-router'
 
 const MovieList = (props) => (
     <ul>
@@ -48,10 +48,16 @@ class Search extends React.Component {
 
 const Home = () => (
     <section>
-        <Nav/>
-        <h1>Welcome</h1>
+        <h2>Welcome</h2>
+        <h4>This is home</h4>
     </section>
 
+)
+
+const MovieDetail = () => (
+    <section>
+        <h1>Movie detail</h1>
+    </section>
 )
 
 const Nav = () => (
@@ -62,13 +68,15 @@ const Nav = () => (
         <li>
             <Link to='/search'>Search</Link>
         </li>
+        <li>
+            <Link to='/detail'>Deatil</Link>
+        </li>
     </nav>
 )
 
 const App = props => (
     <section>
-        <Nav/>
-        {props.children}
+        <Nav/> {props.children}
     </section>
 )
 
@@ -77,9 +85,10 @@ class Main extends React.Component {
         return (
             <Router history={hashHistory}>
                 <Route path='/' component={App}>
+                    <IndexRoute component={Home}/>
                     <Route path='search' component={Search}/>
+                    <Route path='detail' component={MovieDetail}/>
                 </Route>
-
             </Router>
         )
     }
