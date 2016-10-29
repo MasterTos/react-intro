@@ -9,9 +9,15 @@ const MovieList = (props) => (
         {props
             .movies
             .map((movie, i) => {
+                const query = {
+                    pathname: '/detail',
+                    query: {
+                        id: movie.imdbID
+                    }
+                }
                 return (
                     <li key={i}>
-                        <h4>{movie.Title}</h4>
+                        <h4><Link to={query}>{movie.Title}</Link></h4>
                         <img src={movie.Poster}/>
                     </li>
                 )
@@ -90,11 +96,42 @@ const Home = () => (
     </section>
 )
 
-const MovieDetail = () => (
-    <section>
-        <h1>Movie detail</h1>
-    </section>
-)
+class MovieDetail extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            movie: {
+                Title: 'N/A'
+            }
+        }
+        if (props.location.query.id) {
+            const id = props.location.query.id
+            axios
+                .get(`http://www.omdbapi.com/?i=${id}&plot=short&r=json`)
+                .then(response => {
+                    const movie = response.data
+                    this.setState({movie: movie})
+                })
+        }
+    }
+    render() {
+        const movie = this.state.movie
+        /*const {
+            Title,
+            Genre,
+            Poster
+        } = this.state.movie;*/
+        return (
+            <section>
+                <h1>{movie.Title}</h1>
+                <small>{movie.Genre}</small>
+                <div>
+                    <img src={movie.Poster} />
+                </div>
+            </section>
+        )
+    }
+}
 
 const Nav = () => (
     <nav>
