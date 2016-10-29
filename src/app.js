@@ -22,6 +22,9 @@ class Search extends React.Component {
         this.state = {
             movies: []
         }
+        if (props.location.query.s) {
+            this.onSearch(props.location.query.s)
+        }
     }
     onSearch(query) {
         axios
@@ -46,12 +49,42 @@ class Search extends React.Component {
 
 }
 
+const avengersQuery = {
+    pathname: '/search',
+    query: {
+        s: "Avengers"
+    }
+}
+
+const batmanQuery = {
+    pathname: '/search',
+    query: {
+        s: "Batman"
+    }
+}
+
+const drstrangeQuery = {
+    pathname: '/search',
+    query: {
+        s: "Doctor Strange"
+    }
+}
+
 const Home = () => (
     <section>
-        <h2>Welcome</h2>
-        <h4>This is home</h4>
+        <h1>This is home</h1>
+        <ul>
+            <li>
+                <Link to={batmanQuery}>Batman</Link>
+            </li>
+            <li>
+                <Link to={avengersQuery}>Avengers</Link>
+            </li>
+            <li>
+                <Link to={drstrangeQuery}>Doctor Strange</Link>
+            </li>
+        </ul>
     </section>
-
 )
 
 const MovieDetail = () => (
