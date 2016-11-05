@@ -4,9 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "npm run copy && ./node_modules/.bin/webpack --display-error-details",
-        "start": "npm run copy && ./node_modules/.bin/webpack-dev-server --content-base dist",
-        "copy": "cp ./src/index.html ./dist"
+        "build": "npm run clean && npm run copy && ./node_modules/.bin/webpack --display-error-details",
+        "start": "./node_modules/.bin/webpack-dev-server --content-base dist",
+        "copy": "cp ./src/index.html ./dist",
+        "clean": "rm -rf ./dist/*"
     },
     "author": "MasterTos",
     "license": "MIT",
