@@ -1,0 +1,14 @@
+body {
+    color: greenyellow;
+    ul.list {
+        li {
+            color: blue;
+            a {
+                font-weight: bold;
+            }
+            a.thin {
+                font-weight: normal;
+            }
+        }
+    }
+}
