@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "npm run clean && npm run copy && ./node_modules/.bin/webpack --display-error-details",
+        "pre-build": "npm run clean && npm run copy",
+        "build": "npm run pre-build && ./node_modules/.bin/webpack --display-error-details",
         "start": "./node_modules/.bin/webpack-dev-server --content-base dist",
         "copy": "cp ./src/index.html ./dist",
         "clean": "rm -rf ./dist/*"
