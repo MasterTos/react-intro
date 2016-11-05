@@ -7,13 +7,20 @@ var config = {
     },
     module: {
         loaders: [{
-            test: /\.js$/,
-            include: path.join(__dirname, 'src'),
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react']
+                test: /\.js$/,
+                include: path.join(__dirname, 'src'),
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            },
+            {
+                test: /\.css$/,
+                include: path.join(__dirname, 'src'),
+                loaders: ['style', 'css'],
+
             }
-        }]
+        ]
     },
     output: {
         path: path.join(__dirname, 'dist'),
